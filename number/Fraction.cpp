@@ -100,69 +100,26 @@ Fraction& Fraction :: operator/=(const Fraction& f)
   return *this;
 }
 
-Fraction operator+(const Fraction& a, const Fraction& b)
-{
-  Fraction f = a;
-  return f += b;
-}
-
-Fraction operator-(const Fraction& a, const Fraction& b)
-{
-  Fraction f = a;
-  return f -= b;
-}
-
-Fraction operator*(const Fraction& a, const Fraction& b)
-{
-  Fraction f = a;
-  return f *= b;
-}
-
-Fraction operator/(const Fraction& a, const Fraction& b)
-{
-  Fraction f = a;
-  return f /= b;
-}
+Fraction operator+(const Fraction& a, const Fraction& b) { return Fraction(a) += b; }
+Fraction operator-(const Fraction& a, const Fraction& b) { return Fraction(a) -= b; }
+Fraction operator*(const Fraction& a, const Fraction& b) { return Fraction(a) *= b; }
+Fraction operator/(const Fraction& a, const Fraction& b) { return Fraction(a) /= b; }
 
 bool operator==(const Fraction& a, const Fraction& b)
 {
   return a.num() == b.num() && a.den() == b.den();
 }
-
-bool operator!=(const Fraction& a, const Fraction& b)
-{
-  return !(a == b);
-}
-
 bool operator<(const Fraction& a, const Fraction& b)
 {
   return a.den() > b.den() || (a.den() == b.den()) && a.num() < b.num();
 }
+bool operator!=(const Fraction& a, const Fraction& b) { return !(a == b); }
+bool operator>(const Fraction& a, const Fraction& b) { return b < a; }
+bool operator<=(const Fraction& a, const Fraction& b) { return !(a > b); }
+bool operator>=(const Fraction& a, const Fraction& b) { return !(a < b); }
 
-bool operator>(const Fraction& a, const Fraction& b)
-{
-  return b < a;
-}
-
-bool operator<=(const Fraction& a, const Fraction& b)
-{
-  return !(a > b);
-}
-
-bool operator>=(const Fraction& a, const Fraction& b)
-{
-  return !(a < b);
-}
-
-Fraction operator+(const Fraction& f)
-{
-  return Fraction(f.num(), f.den());
-}
-
-Fraction operator-(const Fraction& f)
-{
-  return Fraction(-f.num(), f.den());
-}
+Fraction operator+(const Fraction& f) { return Fraction(f); }
+Fraction operator-(const Fraction& f) { return Fraction(-f.num(), f.den()); }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f)
 {
@@ -174,7 +131,7 @@ std::ostream& operator<<(std::ostream& os, const Fraction& f)
   return os;
 }
 
-std::istream& operator<<(std::istream& is, Fraction& f)
+std::istream& operator>>(std::istream& is, Fraction& f)
 {  
   return is;
 }
