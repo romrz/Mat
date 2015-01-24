@@ -1,38 +1,10 @@
 #include <iostream>
-#include <stdexcept>
 #include "Fraction.h"
 
-Fraction :: Fraction(int num, int den)
-{
-  mNum = num;
-  
-  if(den != 0) mDen = den;
-  // Throws an exception if the denominator is zero
-  else throw std::runtime_error("Fraction Denominator Zero.");
-
-  simplify();
-}
-
-/*
-void Fraction :: simplify2()
-{
-  int divisor = gcd(mNum, mDen);
-
-  mNum /= divisor;
-  mDen /= divisor;
-
-  if(mDen < 0) { mNum *= -1; mDen *= -1; }
-}
-
-int Fraction :: gcd(int a, int b)
-{
-  if(b == 0) return a;
-  else if(a == 0) return b;
-
-  return gcd(b, a % b);
-}
-*/
-
+/**
+ * Simplifies the fraction using the GCD and dividing both
+ * the numarator and denominator by it.
+ */
 void Fraction :: simplify()
 {
   // calculates the GCD of a & b
@@ -43,7 +15,6 @@ void Fraction :: simplify()
     b = r;
   }
 
-  // Divides both numerator and denominator by the GCD
   mNum /= a;
   mDen /= a;
 
