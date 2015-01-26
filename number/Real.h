@@ -44,6 +44,11 @@ class Real
   bool isDouble() const { return mType == DOUBLE; }
 
   /**
+   * Gets the double value if this number
+   */
+  double dbl() const { return isFraction() ? mF.dbl() : mD; }
+  
+  /**
    * Aritmethic Operations with Real numbers.
    */
 
