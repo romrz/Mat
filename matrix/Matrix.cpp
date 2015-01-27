@@ -1,87 +1,37 @@
 #include <iostream>
-#include "matrix/Matrix.h"
-#include "number/Number.h"
+#include "Matrix.h"
 
 using namespace std;
 
-Matrix::Matrix(int rows, int cols)
+Matrix& Matrix::operator=(const Matrix& m)
 {
-  mR = rows;
-  mC = cols;
-
-  mData = new int[mR * mC];
-}
-
-Matrix::~Matrix()
-{
+  mR = m.rows();
+  mC = m.cols();
+  
   delete[] mData;
-}
-
-void Matrix::setRows(int rows)
-{
-  mR = rows;
-}
-
-int Matrix::getRows()
-{
-  return mR;
-}
-
-void Matrix::setColumns(int columns)
-{
-  mC = columns;
-}
-
-int Matrix::getColumns()
-{
-  return mC;
-}
-
-void Matrix::getData(int *data)
-{
-  data = mData;
-}
-
-Matrix Matrix::operator+(Matrix &m)
-{
-  Matrix result(mR, mC);
+  mData = new complex<Real>[mR * mC];
   
-  int n = mR * mC;
-
-  for(int i = 0; i < n; i++)
-    result[i] = mData[i] + m[i];
-
-  return result;
-}
- 
-Matrix Matrix::operator-(Matrix &m)
-{
-  Matrix result(mR, mC);
-  
-  int n = mR * mC;
-
-  for(int i = 0; i < n; i++)
-    result.mData[i] = mData[i] - m.mData[i];
-
-  return result;
+  return *this;
 }
 
-int& Matrix::operator[](int i)
+Matrix& Matrix::operator+=(const Matrix& m){}
+Matrix& Matrix::operator-=(const Matrix& m){}
+Matrix& Matrix::operator*=(const Matrix& m){}
+
+complex<Real>& Matrix::operator[](int i)
 {
   return mData[i];
 }
 
-void Matrix::print()
+ostream& operator<<(ostream& os, const Matrix& m)
 {
-  int n = mR * mC;
+  int n = m.rows() * m.cols();
+  for(int i = 0; i < n; i++) {
+    if(i % m.cols() == 0) os << endl;
+    else os << " ";
+    
+    os << m.mData[i];     
+  }
 
-  for(int i = 0; i < n; i++)
-    {
-      if(i % mC == 0) cout << endl;
-      else cout << " ";
-
-      cout << mData[i];     
-    }
-
-  cout << endl;
+  os << endl;
 }

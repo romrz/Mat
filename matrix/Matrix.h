@@ -1,40 +1,37 @@
-#include "number/Number.h"
+#include <complex>
+#include "Real.h"
 
-/**
- * A Matrix
- */
 class Matrix {
 
+ private:
+  std::complex<Real> *mData;
+  int mR;
+  int mC;
+
  public:
+  Matrix(const Matrix& m) : mR{m.rows()}, mC{m.cols()} {
+    mData = new std::complex<Real>[mR * mC];
+    for(int i = 0; i < mR * mC; i++)
+      mData[i] = m.mData[i];
+  }
+  
+  Matrix(int rows, int cols) : mR{rows}, mC{cols}, mData{new std::complex<Real>[rows * cols]} {}
 
-  /**
-   * Creates a Matrix of dimensions rows X cols
-   */
-  Matrix(int rows, int cols);
+  ~Matrix() { delete[] mData; }
 
-  /**
-   * Creates a Matrix with the given values
-   */
-  Matrix(Number data[]);
+  int rows() const { return mR; }
+  int cols() const { return mC; }
 
-  /**
-   * Destroy a Matrix and frees the resources
-   */
-  ~Matrix();
+  Matrix& operator=(const Matrix& m);
+  Matrix& operator+=(const Matrix& m);
+  Matrix& operator-=(const Matrix& m);
+  Matrix& operator*=(const Matrix& m);
 
-  //  void setRows(int rows);
+  std::complex<Real> &operator[](int i);
 
-  /**
-   * Gets the rows of the matrix
-   */
-  int getRows();
-
-  //  void setColumns(int columns);
-
-  /**
-   * Gets the columns of the matrix
-   */
-  int getColumns();
+  friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
+  
+  /*
 
   /**
    * Changes the Matrix dimensions.
@@ -43,65 +40,41 @@ class Matrix {
    * If the new dimensions are lower than the old ones
    * the values are deleted from right to left and from the
    * bottom to the top.
-   */
-  void setDimensions(int rows, int columns);
+   * /
+  void setDimensions(int rows, int cols);
 
   void print();
 
   /**
    * Gets the matrix's transpose.
    * The original matrix remains the same.
-   */
+   * /
   Matrix transpose();
 
   /**
    * Gets the matrix's determinant.
    * The original matrix remains the same.
-   */
+   * /
   Matrix determinant();
 
   /**
    * Gets the matrix's inverse.
    * The original matrix remains the same.
-   */
+   * /
   Matrix inverse();
 
   /**
    * Gets the solution matrix to the system Ax = b
    * where x is the solution matrix b is the given matrix
    * and A is this Matrix.
-   */
+   * /
   Matrix solve(const Matrix &b);
 
   /**
    * Gets the matrix's LU decomposition.
    * The matrix L and U are stored in the parameters l and u.
-   */
+   * /
   void LUDecompose(Matrix &l, Matrix &u);
-
-  /**
-   * Gets the sum of this Matrix with the given Matrix
-   */
-  Matrix operator+(const Matrix &m);
-
-  /**
-   * Gets the subtraction of this Matrix with the given Matrix
-   */
-  Matrix operator-(const Matrix &m);
-
-  /**
-   * Gets the product of this Matrix with the given Matrix
-   */
-  Matrix operator*(const Matrix &m);
-
-  /**
-   * Gets the number at the specified index of the matrix
-   */
-  Number &operator[](int i);
-
- private:
-  Number *mData;
-  int mR;
-  int mC;
-
+*/
+    
 };

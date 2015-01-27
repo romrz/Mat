@@ -1,6 +1,6 @@
 #include <iostream>
 #include <exception>
-#include "Fraction.h"
+#include "../matrix/Fraction.h"
 
 using namespace std;
 
@@ -64,8 +64,8 @@ int main()
   }
 
   cout << "Real: " << endl;
-  cout << "f = " << f.real() << endl;
-  cout << "g = " << g.real() << endl;
+  cout << "f = " << f.dbl() << endl;
+  cout << "g = " << g.dbl() << endl;
   
   return 0;
 }
