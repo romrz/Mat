@@ -9,26 +9,35 @@ class Matrix {
   int mC;
 
  public:
-  Matrix(const Matrix& m) : mR{m.rows()}, mC{m.cols()} {
-    mData = new std::complex<Real>[mR * mC];
+  Matrix(const Matrix& m) : mR{m.rows()}, mC{m.cols()}, mData{new std::complex<Real>[m.rows() * m.cols()]}
+  {
     for(int i = 0; i < mR * mC; i++)
-      mData[i] = m.mData[i];
+      mData[i] = m[i];
   }
-  
+  Matrix(Matrix&& m) : mR(m.rows()), mC(m.cols()), mData(m.mData) { m.mData = nullptr; }
   Matrix(int rows, int cols) : mR{rows}, mC{cols}, mData{new std::complex<Real>[rows * cols]} {}
-
+  Matrix() : mR{0}, mC{0}, mData{nullptr} {}
+  
   ~Matrix() { delete[] mData; }
 
+  Matrix& operator=(const Matrix& m);
+  Matrix& operator=(Matrix&& m);
+  
   int rows() const { return mR; }
   int cols() const { return mC; }
-
-  Matrix& operator=(const Matrix& m);
+  int length() const { return mR * mC; }
+  
   Matrix& operator+=(const Matrix& m);
   Matrix& operator-=(const Matrix& m);
   Matrix& operator*=(const Matrix& m);
 
-  std::complex<Real> &operator[](int i);
+  std::complex<Real>& operator()(int i, int j) const { return mData[i * mC + j]; }
+  std::complex<Real>& operator[](int i) const { return mData[i]; }
 
+  friend Matrix operator+(const Matrix& a, const Matrix& b);
+  friend Matrix operator-(const Matrix& a, const Matrix& b);
+  friend Matrix operator*(const Matrix& a, const Matrix& b);
+  
   friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
   
   /*
