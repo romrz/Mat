@@ -30,6 +30,29 @@ Matrix& Matrix :: operator=(Matrix&& m)
   return *this;
 }
 
+void Matrix :: setDimensions(int rows, int cols)
+{
+  if(rows > 0 && cols > 0) {
+
+    int oldR = mR;
+    int oldC = mC;
+    
+    mR = rows;
+    mC = cols;
+
+    complex<Real> *oldData = mData;
+
+    mData = new complex<Real>[rows * cols];
+
+    for(int i = 0; i < rows && i < oldR; i++)
+      for(int j = 0; j < cols && j < oldC; j++)
+	mData[i * mC + j] = oldData[i * oldC + j];
+
+    delete[] oldData;
+    
+  }  
+}
+
 Matrix& Matrix :: operator+=(const Matrix& m)
 {
   if(rows() != m.rows() || cols() != m.cols())

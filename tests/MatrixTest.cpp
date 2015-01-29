@@ -58,6 +58,16 @@ int main()
   Matrix e = a * a * a;
 
   cout << "e = " << e << endl;
+
+  cout << "Matrix Redimensioning: " <<  endl;
+  cout << "a = " << a << endl;
+  a.setDimensions(3, 3);
+  cout << "Redimension a to 3 x 3: " << endl << "a = " << a << endl;
+  a.setDimensions(1, 1);
+  cout << "Redimension a to 1 x 1: " << endl << "a = " << a << endl;
+  a.setDimensions(10, 10);
+  cout << "Redimension a to 10 x 10: " << endl << "a = " << a << endl; 
+  
   
   return 0;
 }
