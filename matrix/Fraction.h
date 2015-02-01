@@ -1,3 +1,6 @@
+#ifndef _FRACTION_H_INCLUDED
+#define _FRACTION_H_INCLUDED
+
 #include <stdexcept>
 
 /**
@@ -67,3 +70,5 @@ class Fraction
   friend std::istream& operator>>(std::istream& os, const Fraction& f);
   
 };
+
+#endif // _FRACTION_H_INCLUDED

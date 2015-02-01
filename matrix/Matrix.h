@@ -1,4 +1,8 @@
+#ifndef _MATRIX_H_INCLUDED
+#define _MATRIX_H_INCLUDED
+
 #include <complex>
+#include <string>
 #include "Real.h"
 
 /**
@@ -7,12 +11,15 @@
 class Matrix {
 
  private:
+
+  // Matrix Name
+  std::string mName;
+
   // Matrix Data
   std::complex<Real> *mData;
 
   // Matrix Rows
   int mR;
-
   // Matrix Cols
   int mC;
   
@@ -142,3 +149,6 @@ class Matrix {
 */
     
 };
+
+
+#endif // _MATRIX_H_INCLUDED

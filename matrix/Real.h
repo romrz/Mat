@@ -1,3 +1,6 @@
+#ifndef _REAL_H_INCLUDED
+#define _REAL_H_INCLUDED
+
 #include "Fraction.h"
 
 /**
@@ -93,3 +96,6 @@ class Real
   friend std::ostream& operator<<(std::ostream& os, const Real& r);
 
 };
+
+
+#endif // _REAL_H_INCLUDED
