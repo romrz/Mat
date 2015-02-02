@@ -71,6 +71,11 @@ int main()
   cout << "Unary : " << endl;
   cout << "-a = " << -a << endl;
   cout << "-b = " << -b << endl;
-  
+
+  Real in;
+  cout << "Inroduce a Real number: ";
+  cin >> in;
+  cout << endl << "The Real number is: " << in << endl;
+
   return 0;
 }

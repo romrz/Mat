@@ -1,6 +1,7 @@
 #include <iostream>
 #include <complex>
 #include "../matrix/Real.h"
+#include "../matrix/Matrix.h"
 
 using namespace std;
 
@@ -35,6 +36,10 @@ int main()
   cout << "b / c = " << (b / c) << endl;
   cout << "c / d = " << (c / d) << endl;
 
-
+  complex<Real> in;
+  cout << "Introduce a Complex<Real> number: ";
+  cin >> in;
+  cout << endl << "The number is: " << in << endl;
+  
   return 0;
 }

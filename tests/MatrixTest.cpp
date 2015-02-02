@@ -67,7 +67,11 @@ int main()
   cout << "Redimension a to 1 x 1: " << endl << "a = " << a << endl;
   a.setDimensions(10, 10);
   cout << "Redimension a to 10 x 10: " << endl << "a = " << a << endl; 
-  
+
+  Matrix in;
+  cout << "Introduce a Matrix: " << endl;
+  cin >> in;
+  cout << "The Matrix is: " << in << endl;
   
   return 0;
 }

@@ -66,6 +66,11 @@ int main()
   cout << "Real: " << endl;
   cout << "f = " << f.dbl() << endl;
   cout << "g = " << g.dbl() << endl;
+
+  Fraction in;
+  cout << "Introduce a Fraction: " << endl;
+  cin >> in;
+  cout << "The Fraction is: " << in <<  endl;
   
   return 0;
 }

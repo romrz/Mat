@@ -36,6 +36,7 @@ class Fraction
   void num(int n) { mNum = n; }
   int den() const { return mDen; }
   void den(int d) { if(d == 0) throw std::runtime_error("Denominator Zero."); mDen = d; }
+  void setValues(int n, int d) { num(n); den(d); simplify(); }
   
   /**
    * Gets the double value of this Fraction
@@ -67,7 +68,7 @@ class Fraction
   friend Fraction operator-(const Fraction& f);
 
   friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
-  friend std::istream& operator>>(std::istream& os, const Fraction& f);
+  friend std::istream& operator>>(std::istream& os, Fraction& f);
   
 };
 

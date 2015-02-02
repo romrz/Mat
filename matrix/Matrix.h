@@ -1,6 +1,7 @@
 #ifndef _MATRIX_H_INCLUDED
 #define _MATRIX_H_INCLUDED
 
+#include <iostream>
 #include <complex>
 #include <string>
 #include "Real.h"
@@ -113,6 +114,7 @@ class Matrix {
   std::complex<Real>& operator[](int i) const { return mData[i]; }
 
   friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
+  friend std::istream& operator>>(std::istream& is, Matrix& m);
   
   /*
 

@@ -94,6 +94,7 @@ class Real
   friend Real operator-(const Real& f);
   
   friend std::ostream& operator<<(std::ostream& os, const Real& r);
+  friend std::istream& operator>>(std::istream& os, Real& r);  
 
 };
 

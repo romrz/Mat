@@ -109,3 +109,18 @@ ostream& operator<<(ostream& os, const Matrix& m)
 
   return os << endl;
 }
+
+istream& operator>>(std::istream& is, Matrix& m)
+{
+  int rows, cols;
+  cin >> rows;
+  cin >> cols;
+
+  m.setDimensions(rows, cols);
+
+  for(int i = 0; i < rows; i++)
+    for(int j = 0; j < cols; j++)
+      is >> m(i, j);
+    
+  return is;
+}

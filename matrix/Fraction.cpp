@@ -103,6 +103,15 @@ std::ostream& operator<<(std::ostream& os, const Fraction& f)
 }
 
 std::istream& operator>>(std::istream& is, Fraction& f)
-{  
+{
+  int num, den = 1;
+  is >> num;
+  if(is.peek() == '/') {
+    is.ignore();
+    is >> den;
+  }
+
+  f.setValues(num, den);
+  
   return is;
 }
