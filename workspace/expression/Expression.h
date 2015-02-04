@@ -3,7 +3,7 @@
 
 class Workspace;
 
-#include "Workspace.h"
+#include "../Workspace.h"
 
 using namespace std;
 

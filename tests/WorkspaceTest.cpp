@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../Workspace.h"
+#include "../workspace/Workspace.h"
 
 using namespace std;
 

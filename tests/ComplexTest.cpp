@@ -1,7 +1,7 @@
 #include <iostream>
 #include <complex>
-#include "../matrix/Real.h"
-#include "../matrix/Matrix.h"
+#include "../workspace/number/Real.h"
+#include "../workspace/matrix/Matrix.h"
 
 using namespace std;
 

@@ -5,7 +5,7 @@
 #include <string>
 #include <unordered_map>
 #include "matrix/Matrix.h"
-#include "Expression.h"
+#include "expression/Expression.h"
 
 /**
  * The Workspace is in charge of handling all the Matrices and Expression solving.

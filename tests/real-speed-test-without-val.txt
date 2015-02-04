@@ -1,3 +1,0 @@
-Real Double time (1000000 sums): 392027 = 0.392027
-Real Fraction time (1000000 sums): 1022801 = 1.0228
-double time (1000000 sums): 6498 = 0.006498
