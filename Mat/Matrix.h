@@ -4,7 +4,7 @@
 #include <iostream>
 #include <complex>
 #include <string>
-#include "../number/Real.h"
+#include "Real.h"
 
 /**
  * A matrix of complex<Real>

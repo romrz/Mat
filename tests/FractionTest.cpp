@@ -1,6 +1,6 @@
 #include <iostream>
 #include <exception>
-#include "../workspace/number/Fraction.h"
+#include "../Mat/Fraction.h"
 
 using namespace std;
 

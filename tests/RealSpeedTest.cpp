@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include "../matrix/Real.h"
+#include "../Mat/Real.h"
 
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../mat.h"
+#include "../Mat/mat.h"
 
 using namespace std;
 
