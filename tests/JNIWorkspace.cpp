@@ -1,7 +1,7 @@
 #include <string>
 #include <sstream>
 #include "JNIWorkspace.h"
-#include "../Workspace.h"
+#include "../Mat/mat.h"
 
 JNIEXPORT jlong JNICALL Java_JNIWorkspace_initWorkspace
   (JNIEnv *env, jobject obj)
